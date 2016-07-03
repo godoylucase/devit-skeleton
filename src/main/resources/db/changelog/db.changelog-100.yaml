@@ -1,0 +1,25 @@
+databaseChangeLog:
+    - changeSet:
+        id: 1
+        author: lucasgodoy
+        preconditions:
+            onFail: MARK_RAN
+            not:
+                tableExists:
+                    schemaName: devit_skeleton
+                    tableName: users
+        changes:
+            - createTable:
+                tableName: users
+                columns:
+                    - column:
+                        name: id
+                        type: bigint
+                        autoIncrement: true
+                        constraints:
+                            primaryKey: true
+                            nullable: false
+                    - column:
+                        name: username
+                        type: varchar(50)
+
